@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Raffle Time!{% endblock %}
+
+{% block body %}
+<h1>Winner registered!</h1>
+<p><a href="{{ url('dzuelke_symfonycon2014_raffle_default_draw', {'raffle': raffle}) }}">Pick another winner for raffle "{{ raffle }}"</a></p>
+{% endblock %}
+
