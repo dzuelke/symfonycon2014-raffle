@@ -1,0 +1,5 @@
+dzuelke_symfony_con2014_raffle:
+    resource: "@DzuelkeSymfonyCon2014RaffleBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
