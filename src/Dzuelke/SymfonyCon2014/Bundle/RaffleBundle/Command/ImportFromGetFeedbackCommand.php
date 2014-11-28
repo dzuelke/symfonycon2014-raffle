@@ -62,7 +62,7 @@ class ImportFromGetFeedbackCommand extends ContainerAwareCommand
                 $entrant = new $document_class();
                 try {
                     $entrant->hydrate($response);
-                } catch(Exception $e) {
+                } catch(\Exception $e) {
                     continue;
                 }
             
