@@ -1,4 +1,5 @@
 imports:
+    - { resource: env.php }
     - { resource: parameters.yml }
     - { resource: security.yml }
 
@@ -62,6 +63,16 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
+
+doctrine_mongodb:
+    connections:
+        default:
+            server: %env.mongodb_url%
+            options: {}
+    default_database: %env.mongodb_database%
+    document_managers:
+        default:
+            auto_mapping: true
 
 # Swiftmailer Configuration
 swiftmailer:
