@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Raffle Time!{% endblock %}
+
+{% block body %}
+<h1>Existing Winners of Raffle "{{ raffle }}":</h1>
+
+<ol>
+{% for winner in winners %}
+    <li>{{ winner }}</li>
+{% else %}
+    <li><em>No winner(s) yet!</em></li>
+{% endfor %}
+</ol>
+
+<p><form action="{{ url('dzuelke_symfonycon2014_raffle_default_draw', {'raffle': raffle}) }}" method="post"><input type="submit" value="Draw a winner" /></form></p>
+{% endblock %}

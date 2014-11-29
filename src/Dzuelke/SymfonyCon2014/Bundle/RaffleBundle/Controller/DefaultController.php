@@ -26,6 +26,22 @@ class DefaultController extends Controller
     
     /**
      * @Route("/raffles/{raffle}")
+     * @Method({"GET"})
+     * @Template()
+     */
+    public function raffleAction($raffle)
+    {
+        $winners = $this->get('doctrine_mongodb')->getManager()->getRepository('DzuelkeSymfonyCon2014RaffleBundle:'. $raffle)->findByWon(true);
+        foreach($winners as &$winner) {
+            $winner = $winner->getName()?:$winner->getEmail();
+        }
+        
+        return array('raffle' => $raffle, 'winners' => $winners);
+    }
+    
+    /**
+     * @Route("/raffles/{raffle}/winners/")
+     * @Method({"POST"})
      * @Template()
      */
     public function drawAction($raffle) {
