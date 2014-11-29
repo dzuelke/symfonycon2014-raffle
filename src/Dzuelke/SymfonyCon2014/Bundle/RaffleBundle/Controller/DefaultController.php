@@ -11,10 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/raffles/")
      * @Template()
      */
-    public function indexAction()
+    public function rafflesAction()
     {
         $raffles = array();
         foreach($this->get('doctrine_mongodb')->getManager()->getMetadataFactory()->getAllMetadata() as $meta) {

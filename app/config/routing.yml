@@ -3,3 +3,8 @@ dzuelke_symfony_con2014_raffle:
     type:     annotation
     prefix:   /
 
+_home:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: dzuelke_symfonycon2014_raffle_default_raffles
