@@ -34,7 +34,7 @@ class DefaultController extends Controller
         shuffle($entrants);
         
         $winner = $entrants[0];
-        return new Response($this->get('twig')->resolveTemplate(array("DzuelkeSymfonyCon2014RaffleBundle:Default:draw.$raffle.html.twig", 'DzuelkeSymfonyCon2014RaffleBundle:Default:draw.html.twig'))->render(array('winner' => $winner, 'raffle' => $raffle)));
+        return new Response($this->get('twig')->resolveTemplate(array("DzuelkeSymfonyCon2014RaffleBundle:Default:draw.$raffle.html.twig", 'DzuelkeSymfonyCon2014RaffleBundle:Default:draw.html.twig'))->render(array('winner' => $winner, 'winner_name' => $winner->getName()?:$winner->getEmail(), 'raffle' => $raffle)));
     }
     
     /**
