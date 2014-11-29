@@ -47,6 +47,10 @@ class DefaultController extends Controller
     public function drawAction($raffle) {
         $entrants = $this->get('doctrine_mongodb')->getManager()->getRepository('DzuelkeSymfonyCon2014RaffleBundle:'. $raffle)->findByWon(false);
         
+        if(!$entrants) {
+            throw new \Exception('no results');
+        }
+        
         shuffle($entrants);
         
         $winner = $entrants[0];
