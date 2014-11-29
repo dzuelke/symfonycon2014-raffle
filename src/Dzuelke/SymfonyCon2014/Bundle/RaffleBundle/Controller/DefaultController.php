@@ -36,7 +36,7 @@ class DefaultController extends Controller
             $winner = $winner->getName()?:$winner->getEmail();
         }
         
-        return array('raffle' => $raffle, 'winners' => $winners);
+        return array('raffle' => $raffle, 'winners' => $winners, 'entrants' => $this->get('doctrine_mongodb')->getManager()->createQueryBuilder("DzuelkeSymfonyCon2014RaffleBundle:$raffle")->count()->getQuery()->execute());
     }
     
     /**

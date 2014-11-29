@@ -3,7 +3,7 @@
 {% block title %}Raffle Time!{% endblock %}
 
 {% block body %}
-<h1>Pick a drawing:</h1>
+<h1>Open Raffles</h1>
 <ul>
 {% for entry in raffles %}
     <li><a href="{{ url('dzuelke_symfonycon2014_raffle_default_raffle', {'raffle': entry}) }}">{{ entry }}</a></li>
