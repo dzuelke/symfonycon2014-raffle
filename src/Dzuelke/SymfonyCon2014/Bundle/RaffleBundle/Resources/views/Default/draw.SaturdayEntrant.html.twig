@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Raffle Time!{% endblock %}
+
+{% block body %}
+<h1>Winner*: {{ winner_name }}</h1>
+<p>Check the following:</p>
+<ol>
+    <li><a href="{{ winner.getHerokuAppUrl() }}">{{ winner.getHerokuAppUrl() }}</a> was created today after 9:30</li>
+    <li><a href="{{ winner.getGithubPullRequestUrl() }}">{{ winner.getGithubPullRequestUrl() }}</a> has a commit by {{ winner.getEmail() }} from today after 9:30</li>
+</ol>
+<p><small>*: if present and conditions are met</small></p>
+<p><form action="{{ url('dzuelke_symfonycon2014_raffle_default_win', {'raffle': raffle, 'id': winner.getId()}) }}" method="post"><input type="hidden" name="id" value="{{ winner.getId() }}" /><input type="submit" value="Register as winner" /></form></p>
+{% endblock %}
